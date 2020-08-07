@@ -57,9 +57,7 @@ def send_custom_files():
     files = []
     file_names = []
     while True:
-        file_path = input(
-            'Please type directory of file e.g C:\\path\\to\\file (note that you must not put file name in the file path) or "send" for sending: '
-        )
+        file_path = input('Please type directory of file e.g C:\\path\\to\\file (note that you must not put file name in the file path) or "send" for sending: ')
 
         if file_path != "send":
             file_name = input("Input only file name again:")
