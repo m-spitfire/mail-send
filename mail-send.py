@@ -10,6 +10,7 @@ import os
 EMAIL_NAME = os.environ.get("EMAIL_USER")
 EMAIL_PASS = os.environ.get("EMAIL_PASS")
 EMAIL_DARSH = os.environ.get("EMAIL_DARSH")
+ESSAY_DIR = os.environ.get("ESSAY_DIR")
 
 # If no argument passed
 if len(sys.argv) < 2:
@@ -38,7 +39,7 @@ def send_darshana_files():
             break
 
     for file_name in files:
-        with open("C:\\Users\\Ilqar\\Desktop\\ielts_essay\\" + file_name, "rb") as f:
+        with open(ESSAY_DIR + file_name, "rb") as f:
             file_data = f.read()
 
         msg.add_attachment(
