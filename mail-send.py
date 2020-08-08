@@ -21,9 +21,10 @@ keyphrase = sys.argv[1]
 msg = EmailMessage()
 msg["From"] = EMAIL_NAME
 
+
 def send_darshana_files():
     """
-    Function for sending e mails 
+    Function for sending e mails
     to my teacher from a certain directory
     """
 
@@ -55,7 +56,9 @@ def send_custom_files():
     files = []
     file_names = []
     while True:
-        file_path = input('Please type directory of file e.g C:\\path\\to\\file (note that you must not put file name in the file path) or "send" for sending: ')
+        file_path = input(
+            'Please type directory of file e.g C:\\path\\to\\file (note that you must not put file name in the file path) or "send" for sending: '
+        )
 
         if file_path != "send":
             file_name = input("Input only file name again:")
@@ -80,10 +83,7 @@ def send_custom_files():
             )
         elif kind.extension == "jpg" or kind.extension == "png":
             msg.add_attachment(
-                file_data,
-                maintype="image",
-                subtype=kind.extension,
-                filename=file_name
+                file_data, maintype="image", subtype=kind.extension, filename=file_name
             )
         else:
             print("Only pdf, docx, and image files are supported")
@@ -91,7 +91,7 @@ def send_custom_files():
 
 def main():
     """
-    Main function for creating message object manipulating it and 
+    Main function for creating message object manipulating it and
     sending e-mails
     """
 
