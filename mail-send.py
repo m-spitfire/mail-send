@@ -18,17 +18,14 @@ if len(sys.argv) < 2:
     sys.exit()
 keyphrase = sys.argv[1]
 
-# Creating a EmailMessage() object
 msg = EmailMessage()
 msg["From"] = EMAIL_NAME
-
 
 def send_darshana_files():
     """
     Function for sending e mails 
     to my teacher from a certain directory
     """
-    global keyphrase, msg
 
     files = []
     while True:
@@ -83,13 +80,21 @@ def send_custom_files():
             )
         elif kind.extension == "jpg" or kind.extension == "png":
             msg.add_attachment(
-                file_data, maintype="image", subtype=kind.extension, filename=file_name
+                file_data,
+                maintype="image",
+                subtype=kind.extension,
+                filename=file_name
             )
         else:
             print("Only pdf, docx, and image files are supported")
 
 
 def main():
+    """
+    Main function for creating message object manipulating it and 
+    sending e-mails
+    """
+
     if keyphrase == "darshana":
         msg["Subject"] = "IELTS essay roof"
         msg["To"] = EMAIL_DARSH
